@@ -1,8 +1,9 @@
 oc_web_agency_homepage:
     path:     /
-    defaults: { _controller: OCWebAgencyBundle:Default:index }
+    defaults: { _controller: OCWebAgencyBundle:Home:index }
 
 # app/config/routing.yml
+
 
 view_post_route:
     path:    /post

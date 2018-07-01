@@ -5,7 +5,7 @@ namespace OC\WebAgencyBundle\Entity\Agency;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Post
+ * viewPost
  *
  * @ORM\Table(name="agency_post")
  * @ORM\Entity(repositoryClass="OC\WebAgencyBundle\Repository\Agency\PostRepository")

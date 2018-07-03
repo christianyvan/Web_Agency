@@ -2,5 +2,13 @@
  {% block body %}
      <h1>Page d'affichage de tout les posts </h1>
 
+   <div class="container">
+       <ul>
+        {% for post in posts %}
+            <li>{{ post.name}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
 
  {% endblock %}

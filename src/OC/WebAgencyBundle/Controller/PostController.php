@@ -20,9 +20,7 @@ class PostController extends Controller
 		$em = $this->getDoctrine()->getManager();
 
 		$posts = $em->getRepository('OC\WebAgencyBundle\Entity\Post')->findAll();
-
-
-		return $this->render("OCWebAgencyBundle:Post:viewPosts.html.twig",array('post'=>$posts));
+		return $this->render("OCWebAgencyBundle:Post:viewPosts.html.twig",array('posts'=>$posts));
 	}
 
 	public function createPostAction(){

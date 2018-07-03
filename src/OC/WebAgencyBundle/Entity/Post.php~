@@ -255,28 +255,5 @@ class Post
     {
         return $this->isPosted;
     }
-
-    /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return Post
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }
+

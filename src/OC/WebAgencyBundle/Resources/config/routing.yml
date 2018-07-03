@@ -7,9 +7,17 @@ home_page_route:
     path:    /
     defaults: {_controller: OCWebAgencyBundle:Home:index}
 
+
 view_post_route:
-    path:    /post
+    path:  /post
     defaults: {_controller: OCWebAgencyBundle:Post:viewPost }
+    requirements:
+        id: \d+
+
+view_posts_route:
+    path:    /posts
+    defaults: {_controller: OCWebAgencyBundle:Post:viewPosts }
+
 
 create_post_route:
     path:    /post/create
@@ -18,6 +26,8 @@ create_post_route:
 update_post_route:
     path:    /post/update/{id}
     defaults: {_controller: OCWebAgencyBundle:Post:updatePost }
+    requirements:
+        id: \d+
 
 delete_post_route:
     path:    /post/delete/{id}

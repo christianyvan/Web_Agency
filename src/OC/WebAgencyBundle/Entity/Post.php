@@ -1,14 +1,14 @@
 <?php
 
-namespace OC\WebAgencyBundle\Entity\Agency;
+namespace OC\WebAgencyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * viewPost
+ * Post
  *
- * @ORM\Table(name="agency_post")
- * @ORM\Entity(repositoryClass="OC\WebAgencyBundle\Repository\Agency\PostRepository")
+ * @ORM\Table(name="posts")
+ * @ORM\Entity(repositoryClass="OC\WebAgencyBundle\Repository\PostRepository")
  */
 class Post
 {
@@ -52,7 +52,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -66,9 +66,9 @@ class Post
     /**
      * @var bool
      *
-     * @ORM\Column(name="posted", type="boolean")
+     * @ORM\Column(name="isPosted", type="boolean")
      */
-    private $posted;
+    private $isPosted;
 
 
     /**
@@ -226,27 +226,27 @@ class Post
     }
 
     /**
-     * Set posted
+     * Set isPosted
      *
-     * @param boolean $posted
+     * @param boolean $isPosted
      *
      * @return Post
      */
-    public function setPosted($posted)
+    public function setIsPosted($isPosted)
     {
-        $this->posted = $posted;
+        $this->isPosted = $isPosted;
 
         return $this;
     }
 
     /**
-     * Get posted
+     * Get isPosted
      *
      * @return bool
      */
-    public function getPosted()
+    public function getIsPosted()
     {
-        return $this->posted;
+        return $this->isPosted;
     }
 }
 

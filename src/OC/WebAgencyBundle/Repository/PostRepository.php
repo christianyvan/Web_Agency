@@ -1,6 +1,6 @@
 <?php
 
-namespace OC\WebAgencyBundle\Repository\Agency;
+namespace OC\WebAgencyBundle\Repository;
 
 /**
  * PostRepository

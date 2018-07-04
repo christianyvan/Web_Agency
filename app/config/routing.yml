@@ -1,3 +1,7 @@
+user_user:
+    resource: "@UserUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 oc_web_agency:
     resource: "@OCWebAgencyBundle/Resources/config/routing.yml"
     prefix:   /

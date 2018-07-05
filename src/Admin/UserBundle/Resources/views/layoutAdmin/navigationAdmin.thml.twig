@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Web Agency admin{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"  href="{{asset('style/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('style/style-accueil.css')}}">
+
+
+</head>
+
+<body>
+<div class="container">
+
+    {% block body %}
+
+        <div class="page">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">WebSiteName</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="{{ path('view_posts_route') }}">Edit Post</a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="back" id="section1">
+                <h3>THIS IS MY LIFE !!! </h3>
+                <div class="btn-header"><a class="btn-second" href="#section2">next</a></div>
+            </div>
+            <div class="back" id="section2">
+                <h3>WELCOME !!! </h3>
+                <div class="btn-header"><a class="btn-second" href="#section1">last</a>
+                    <a href="#section3" class="btn-second">next</a>
+                </div>
+            </div>
+
+            <div class="back" id="section3">
+                <h3>DANCEFLOOR !</h3>
+                <div class="btn-header"><a class="btn-second" href="#section2">last</a></div>
+            </div>
+        </div>
+
+    {% endblock %}
+</div>
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
+{% endblock %}
+
+</body>
+</html>

@@ -32,3 +32,9 @@ update_post_route:
 delete_post_route:
     path:    /post/delete/{id}
     defaults: {_controller: OCWebAgencyBundle:Post:deletePost }
+    
+viewer_page_route:
+    path: /page/{id}
+    defaults: {_controller: OCWebAgencyBundle:Cms:viewPage }
+    requirements:
+        id: \d+

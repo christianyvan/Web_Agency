@@ -8,5 +8,3 @@ admin_user:
 oc_web_agency:
     resource: "@OCWebAgencyBundle/Resources/config/routing.yml"
     prefix:   /
-
-

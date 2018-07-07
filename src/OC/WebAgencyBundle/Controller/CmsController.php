@@ -3,66 +3,51 @@
 namespace OC\WebAgencyBundle\Controller;
 
 //use http\Env\Request;
-use OC\WebAgencyBundle\Entity\Post;
-use OC\WebAgencyBundle\Form\PostType;
+use OC\WebAgencyBundle\Entity\Page;
+use OC\WebAgencyBundle\Form\Item;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class PostController extends Controller
+class CmsController extends Controller
 {
-
-	public function viewPostAction()
+    public function viewPageAction($id)
 	{
-		return $this->render("OCWebAgencyBundle:Post:viewPost.html.twig");
+             
+            $em = $this->getDoctrine()->getManager();
+            
+            $page = $em->getRepository('OCWebAgencyBundle:Page')->find($id);
+            
+            
+            if (null === $page) {
+                    throw new NotFoundHttpException("La page d'id ".$id." n'existe pas.");
+            }
+            
+            $listPages = $em
+            ->getRepository('OCWebAgencyBundle:Page')
+            ->myfindAll()
+            ;
+            
+            // Récupération de la liste des items d'une page
+            $listItems = $em
+            ->getRepository('OCWebAgencyBundle:Item')
+            ->findBy(array('page' => $page))
+            ;
+            
+            //var_dump($page);
+            // print_r($listPages);
+            
+            return $this->render('OCWebAgencyBundle:Page:view.html.twig', array(
+            'page'           => $page,
+            'listPages' => $listPages,
+            'listItems' => $listItems,
+           ));
 	}
 
-	public function viewPostsAction()
-	{
-		$em = $this->getDoctrine()->getManager();
+        
+	public function createPageAction(Request $request){
 
-		$posts = $em->getRepository('OC\WebAgencyBundle\Entity\Post')->findAll();
-		return $this->render("OCWebAgencyBundle:Post:viewPosts.html.twig",array('posts'=>$posts));
-	}
-
-	public function createPostAction(Request $request){
-
-		$post = new Post;
-		$form = $this->createForm(PostType::class,$post);
-
-
-		// on hydrate l'entité post avec les donnée transmise via la méthode POST
-		// $post contient maintenant les données du formulaire
-		$form->handleRequest($request);
-
-		if ($request->isMethod('POST'))
-		{
-			if ($form->isSubmitted() && $form->isValid())
-			{
-				$title = $form['title']->getData();
-				$name = $form['name']->getData();
-				$content = $form['content']->getData();
-				$email = $form['email']->getData();
-				$image = $form['image']->getData();
-				$category = $form['category']->getData();
-
-				$post->setTitle($title);
-				$post->setName($name);
-				$post->setContent($content);
-				$post->setEmail($email);
-				$post->setImage($image);
-				$post->setCategory($category);
-
-				$em = $this->getDoctrine()->getManager();
-				$em->persist($post);
-				$em->flush();
-				$this->addFlash('message','Post Saved Successfully');
-				return $this->redirectToRoute('view_posts_route',['post' => $post]);
-			}
-		}
-
-		return $this->render("OCWebAgencyBundle:form:viewFormCreatePost.html.twig",[
-									'form'=> $form->createView()]);
+		
 	}
 
 	/**
@@ -70,8 +55,8 @@ class PostController extends Controller
 	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function updatePostAction($id,Request $request){
-		return $this->render("OCWebAgencyBundle:Post:updatePost.html.twig");
+	public function updatePageAction($id,Request $request){
+		
 	}
 
 	/**
@@ -79,7 +64,7 @@ class PostController extends Controller
 	 * @param Request $request
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function deletePostAction($id,Request $request){
-		return $this->render("OCWebAgencyBundle:Post:deletePost.html.twig");
+	public function deletePageAction($id,Request $request){
+		
 	}
 }

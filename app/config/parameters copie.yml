@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: webagence
+    database_user: root
+    database_password: root
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: yassir.montet70@gmail.com
+    mailer_password: tincxwsfrmkkncwp
+    secret: 508cccc79cc8cb2182f2ee277f66812746e8bc8e
